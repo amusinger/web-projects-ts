@@ -10,10 +10,11 @@ export class SubOperation{
     }
 
     execute(numbers:number[]){
-        for (let i in numbers) {
+        this.res = numbers[0]
+        for (var i = 1;  i< numbers.length; i++) {
             this.res -= numbers[i];
          } 
-         return this.res*(-1)
+         return this.res
     }
 
 }

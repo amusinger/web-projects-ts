@@ -11,6 +11,8 @@ export class CalcComponent implements OnInit {
 
   public digits: number[][] = [];
 
+
+
   constructor() { 
     for(let i = 0; i<3; i++){
       this.digits[i] = []
