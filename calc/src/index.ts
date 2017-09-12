@@ -19,10 +19,10 @@ var operation: string;
 
 
 
-console.log(calc.calculate("+", 1000,2));
-console.log(calc.calculate("*", 1,2));
-console.log(calc.calculate("/", 12342,2));
-console.log(calc.calculate("-", 1,2234));
+console.log(calc.calculate("+", [1000,2,123,-123, -100]));
+console.log(calc.calculate("*", [1,2,213]));
+console.log(calc.calculate("/", [12342,2,123]));
+console.log(calc.calculate("-", [1,2234, -213]));
 
 //console.log(calc.calculate("+", firstNumber,secondNumber));
 

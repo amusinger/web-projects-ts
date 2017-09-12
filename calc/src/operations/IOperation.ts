@@ -5,7 +5,9 @@ interface IOperation{
     param1: number;
     param2: number;
 
-    execute(param1: number, param2: number): number;
+    res: number;
+
+    execute(params: number[]): number;
 
 
 }

@@ -19,9 +19,9 @@ export class Calculator {
         
     }
 
-    public calculate(_operation:string, a:number, b:number){
+    public calculate(_operation:string, numbers: number[]){
         var x = this.findOperation(_operation);
-        return x.execute(a,b);
+        return x.execute(numbers);
     }
 
 
