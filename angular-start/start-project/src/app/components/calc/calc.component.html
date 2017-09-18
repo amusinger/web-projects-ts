@@ -1,10 +1,19 @@
 <div class="input">
-  <!-- <input type="text" [(ngModel)]="curValue"> -->
+  <input type="text" [(ngModel)]="textField"> 
+</div>  
 
-</div>  {{ curValue }}
 <div class="buttons">
   <div class="row" *ngFor="let row of digits; let i = index;">
     <button *ngFor="let button of row; let j = index" 
-    (click) ="curValue = curValue + button.toString()">{{button}}</button>
+    (click) ="textField = textField + button.toString()">{{button}}</button>
   </div>
+  <button (click) ="textField = textField + '.'">.</button>
+  <button (click) ="clean()">CE</button>
+
+  <button (click) = "operationClicked('+')">+</button>
+  <button (click) = "operationClicked('-')">-</button>
+  <button (click) = "operationClicked('/')">/</button>
+  <button (click) = "operationClicked('*')">*</button>
+
+  <button (click) = "equalClicked()">=</button>
 </div>
