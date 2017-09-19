@@ -1,5 +1,20 @@
-.input{
-    height: 50px;
+.input input{
+    height: 25px;
+    width: 180px;
     color: #000;
     border: 1px solid black;
+    margin: 10px 0;
+}
+
+.digit{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: white;
+}
+.operation{
+    background-color: orange
+}
+.zero{
+    width: 100px;
 }

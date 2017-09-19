@@ -65,7 +65,6 @@ equalClicked(){
 
 clean(){
    this.textField = "";
-
    this.operation ="";
 
    this.firstNumber = 0;

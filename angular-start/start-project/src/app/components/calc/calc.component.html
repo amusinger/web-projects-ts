@@ -3,17 +3,25 @@
 </div>  
 
 <div class="buttons">
-  <div class="row" *ngFor="let row of digits; let i = index;">
-    <button *ngFor="let button of row; let j = index" 
-    (click) ="textField = textField + button.toString()">{{button}}</button>
+    <div class="row">
+        <button (click) ="clean()" class="digit operation">CE</button>
+        <button (click) = "operationClicked('+')" class="digit operation">+</button>
+        <button (click) = "operationClicked('-')" class="digit operation">-</button>
+    </div>
+    <div class="row">
+        <button (click) = "operationClicked('/')" class="digit operation">/</button>
+        <button (click) = "operationClicked('*')" class="digit operation">*</button>
+        <button (click) = "equalClicked()" class="digit operation">=</button>
+    </div>
+    <div class="row" *ngFor="let row of digits; let i = index;">
+      <button *ngFor="let button of row; let j = index" 
+      (click) ="textField = textField + button.toString()" class="digit">{{button}}</button>
+    </div>
+  <div class="row">
+    <button (click) ="textField = textField + '0'" class="digit zero">0</button>
+    <button (click) ="textField = textField + '.'" class="digit">.</button>
+    
   </div>
-  <button (click) ="textField = textField + '.'">.</button>
-  <button (click) ="clean()">CE</button>
 
-  <button (click) = "operationClicked('+')">+</button>
-  <button (click) = "operationClicked('-')">-</button>
-  <button (click) = "operationClicked('/')">/</button>
-  <button (click) = "operationClicked('*')">*</button>
 
-  <button (click) = "equalClicked()">=</button>
 </div>
