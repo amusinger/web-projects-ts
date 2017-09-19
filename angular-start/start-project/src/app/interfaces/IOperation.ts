@@ -7,7 +7,7 @@ interface IOperation{
     
         res: number;
     
-        execute(params: number[]): number;
+        execute(): number;
     
     
     }

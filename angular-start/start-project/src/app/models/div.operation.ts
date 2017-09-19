@@ -8,11 +8,8 @@ export class DivOperation{
         this.operation = "/";
     }
 
-    execute(numbers:number[]){
-        this.res = numbers[0]
-        for (var i = 1;  i< numbers.length; i++) {
-            this.res /= numbers[i];
-         } 
+    execute(){
+        this.res = this.param1 / this.param2
          return this.res
     }
 

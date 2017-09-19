@@ -14,7 +14,6 @@ export class CalcComponent implements OnInit {
   public textField: string ="";
   public digits: number[][] = [];
 
-  public numbers: number[] = [];
   public operation: string ="";
 
   public firstNumber: number = 0;
@@ -44,26 +43,33 @@ public findOperation(_operation:string){
 
 public calculate(_operation:string, numbers: number[]){
     var x = this.findOperation(_operation);
-    return x.execute(numbers);
+
+    return x.execute();
 }
 
 operationClicked(_operation:string){
   this.operation = _operation;
   this.firstNumber = parseFloat(this.textField);
-  this.numbers.push(this.firstNumber);
+  
   this.textField = "";
 }
 
 equalClicked(){
   var x = this.findOperation(this.operation);
+  x.param1 = this.firstNumber;
   this.secondNumber = parseInt(this.textField);
-  this.numbers.push(this.secondNumber);
-  this.textField =  x.execute(this.numbers).toString();
+  x.param2 = this.secondNumber;
+  this.textField =  x.execute().toString();
   this.firstNumber = parseFloat(this.textField); 
 }
 
 clean(){
-  
+   this.textField = "";
+
+   this.operation ="";
+
+   this.firstNumber = 0;
+   this.secondNumber = 0;
 }
 
 

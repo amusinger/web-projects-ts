@@ -9,10 +9,8 @@ export class MulOperation{
             this.operation = "*";
         }
     
-        execute(numbers:number[]){
-            for (let i in numbers) {
-                this.res *= numbers[i];
-             } 
+        execute(){
+            this.res = this.param1 * this.param2
              return this.res
         }
     
