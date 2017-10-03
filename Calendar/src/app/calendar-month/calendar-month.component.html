@@ -1,0 +1,9 @@
+<div class="month">
+    <div class="row">
+        <div class="col" *ngFor="let week of weeks">{{week}}</div>            
+    </div>
+
+    <div class="row" *ngFor="let r of days; let i = index">
+        <div class="col" *ngFor="let d of r; let j = index" (click)="f(d)" [style.background-color]="colors[i][j]">{{d}}</div>
+    </div>
+</div>
