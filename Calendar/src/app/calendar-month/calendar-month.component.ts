@@ -4,32 +4,40 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-calendar-month',
   templateUrl: './calendar-month.component.html',
-  styleUrls: ['./calendar-month.component.css']
+  styleUrls: ['./calendar-month.component.scss']
 })
 export class CalendarMonthComponent implements OnInit {
 
   week : String[] = [
-    'Mon',
-    "Tue",
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat',
-    'Sun'
+    'Su',
+    'Mo',
+    "Tu",
+    'We',
+    'Th',
+    'Fr',
+    'Sa'
   ];
   month: string;  
   year: number;
-  days: string[][] = [];
+  // days: string[][] = [];
+  days: number[] = [];
+  cols: number[] = [0,1,2,3,4,5,6];
+firstInit: Boolean = false;
 
   @Input() set currentYear(currentYear: number) {
     this.year = currentYear;
-    console.log(this.year)
+    if(this.firstInit == true){
+      this.drawMonth();
+    }
+
+    //console.log(this.year)
 
   }
 
   @Input() set currentMonth(currentMonth: string) {
     this.month =  currentMonth;
-    console.log(this.month);
+    //console.log(this.month);
+   this.firstInit = true;
     this.drawMonth();
    
   }
@@ -37,26 +45,37 @@ export class CalendarMonthComponent implements OnInit {
   drawMonth(){
 
     var _month = moment().month(this.month).month();
-    console.log(_month)
+    //console.log(_month)
     var _year = moment().year(this.year).year();
-    var currentDate = moment([this.year, _year]);
-    var firstday = Number(currentDate.format('d'));
-    console.log(firstday);
-    var daysInMonth = currentDate.daysInMonth();   
+    var currentDate = moment([_year, _month]);
+    var firstday = currentDate.format('d');
+     console.log(firstday);
+     var daysInMonth = currentDate.daysInMonth();
+     //console.log(daysInMonth);
    
-    let iter = 1;
-    for (let i = firstday; i < 7; i++) {
-      this.days[0][i] = iter + '';
-      iter++;
-    }
-    for (let i = 1; i < 7; i++) {
-      for (let j = 0; j < 7; j++) {
-        this.days[i][j] = iter + '';
-        iter++;
-        if (iter === daysInMonth)
-          return;
+    let iter = 0;
+
+    let j = 0;
+      while(Number(firstday) != j){
+       this.days[iter] = 0;
+       j++;
+       iter++;
       }
-    }
+      for(let i = 1; i<daysInMonth+1; i++){
+        this.days[iter] = i;
+        iter++;
+      }
+      
+    
+    
+    // for (let i = 0; i < 7; i++) {
+    //   for (let j = 0; j < 7; j++) {
+    //     this.days[i][j] = iter + '';
+    //     iter++;
+    //     if (iter === daysInMonth)
+    //       return;
+    //   }
+    // }
     
 
   }

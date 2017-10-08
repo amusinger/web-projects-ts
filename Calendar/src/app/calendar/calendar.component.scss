@@ -5,12 +5,9 @@
     .month-block{
         flex: 1 0 20%;
         border: 1px solid black;
-        text-align: center;
-
-
-        .week-block{
-            display: inline;
+        
+        h4{
+            text-align: center;
         }
-
     }
 }

@@ -1,0 +1,23 @@
+.week-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .week-col{
+        flex-grow: 1;
+        width: 14.28%;
+        text-align: center;
+        color: #ddd;
+    }
+}
+
+.days-row{
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+    .days-col{
+        display: inline-block;
+        
+       
+    }
+}

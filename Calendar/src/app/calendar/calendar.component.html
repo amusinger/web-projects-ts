@@ -1,6 +1,6 @@
-<button (click)="goBack()">back</button>
+<button (click)="year=year-1">back</button>
 {{ year }}
-<button (click)="goFurther()">next</button>
+<button (click)="year=year+1">next</button>
 <!-- <input [(ngModel)]="year"> -->
 <div class="calendar-block">
   <div *ngFor="let month of months" class="month-block">
