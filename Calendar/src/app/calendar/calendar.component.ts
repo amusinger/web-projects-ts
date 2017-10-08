@@ -9,7 +9,8 @@ import * as moment from 'moment';
 export class CalendarComponent {
 
   constructor() { }
-  year: number = parseInt(moment().format('YYYY'), 10);
+  curYear: number = parseInt(moment().format('YYYY'), 10);
+  year:number = this.curYear;
  
   public months = moment.months();
 

@@ -6,17 +6,16 @@
     <div class="days-block">
         <div *ngFor="let r of days" class="days-row">
             
-                <div class="days-col" *ngIf="r==0">
+                <div class="days-col" *ngIf="r.myDay==0">
                         
                     </div>
-                <div class="days-col" *ngIf="r!=0">
-                    {{r}}
+                <div class="days-col" 
+                    *ngIf="r.myDay!=0" 
+                    (click)="chooseDay(r)" 
+                    [class.active] = "r.inRange" 
+                    [class.today]="r.isToday">
+                    {{r.myDay}}
                 </div>
             </div>
   </div>
-    
-
-    <!-- <div class="row" *ngFor="let r of days; let i = index">
-        <div class="col" *ngFor="let d of r; let j = index" (click)="f(d)" [style.background-color]="colors[i][j]">{{d}}</div>
-    </div> -->
 </div>
