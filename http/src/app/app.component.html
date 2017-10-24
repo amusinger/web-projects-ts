@@ -1,0 +1,47 @@
+ <!-- <pre>{{people | json}}</pre>  -->
+
+<table >
+  <tr>
+    <th>Username</th>
+    <th>Firstname</th>
+    <th>Gender</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor='let p of people'>
+   <td>{{p.UserName}}</td>
+   <td>{{p.FirstName}}</td>
+   <td>{{p.Gender}}</td>
+   <td>{{p.Age}}</td>
+  </tr>
+</table> 
+ <mat-table>
+
+ </mat-table>
+  <mat-table *ngFor='let p of people'>
+
+    <ng-container matColumnDef="UserName">
+      <mat-header-cell *matHeaderCellDef> UserName </mat-header-cell>
+      <mat-cell > {{p.UserName}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell > {{p.FirstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Gender">
+      <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+      <mat-cell > {{p.Gender}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Age">
+      <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+      <mat-cell> {{p.Age}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
