@@ -6,6 +6,8 @@ import { FirstComponentComponent } from './first-component/first-component.compo
 import { SecondComponentComponent } from './second-component/second-component.component';
 import { ThirdComponentComponent } from './third-component/third-component.component';
 import { MainComponentComponent } from './main-component/main-component.component';
+import { MasterComponent } from './master/master.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { MainComponentComponent } from './main-component/main-component.componen
     FirstComponentComponent,
     SecondComponentComponent,
     ThirdComponentComponent,
-    MainComponentComponent
+    MainComponentComponent,
+    MasterComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +25,11 @@ import { MainComponentComponent } from './main-component/main-component.componen
   ],
   providers: [],
   entryComponents: [
-    FirstComponentComponent,
-    SecondComponentComponent,
-    ThirdComponentComponent,
+    // FirstComponentComponent,
+    // SecondComponentComponent,
+    // ThirdComponentComponent,
+    DetailComponent
+
 ],
   bootstrap: [AppComponent]
 })
