@@ -8,18 +8,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import {MatTableModule} from '@angular/material';
+import { FormsModule } from '@angular/forms';
+
+import { ModalComponent } from './modal/modal.component';
+import { TableComponent } from './table/table.component';
+import { ModalService } from './services/modal.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ModalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

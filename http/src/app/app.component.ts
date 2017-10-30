@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { ModalService } from './services/modal.service';
 
 
 @Component({
@@ -9,38 +10,23 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-  private serviceUrl = 'http://services.odata.org/TripPinRESTierService';
-  results = '';
-  constructor(private http: HttpClient){
+  
+  @ViewChild('template') private template;
+  
+    title = 'app';
+    myContext = { id: '1', name: 'stranger' };
+  
+  
+    constructor(private moduleService: ModalService) {
+    }
+  
+    ngOnInit() {}
+  
+    openModal(){
+      this.moduleService.openTemplateModal(this.template, this.myContext); 
+    }
+    closeModal(){
+      this.moduleService.openTemplateModal(null, null); 
+    }
+
   }
-  public people: object;
-
-  connect(): object {
-    this.http.get(`${this.serviceUrl}/People?$top=20`).subscribe(data => {
-      
-      this.people = data["value"];
-      
-    });
-    return this.people;
-  }
-
-  disconnect() {}
-
-  ngOnInit(): void {
-    this.http.get(`${this.serviceUrl}/People?$top=20`).subscribe(data => {
-      
-      this.people = data["value"];
-    
-      
-    });
-  }
-}
-
-
-export interface Element {
-  name: string;
-  firstname: string;
-  gender: string;
-  age: string;
-}

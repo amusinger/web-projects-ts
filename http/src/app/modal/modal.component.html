@@ -1,0 +1,12 @@
+<ng-container *ngIf="template">
+  <div class="modal">
+    <ng-container *ngTemplateOutlet="template;context: context">
+    </ng-container>
+  </div>
+</ng-container>
+
+
+<!-- <ng-container *ngComponentOutlet="temp"></ng-container>
+
+<button (click)="changeComponent()">Change component</button>
+<template #template>This is template</template>  -->
